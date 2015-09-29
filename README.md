@@ -20,5 +20,6 @@ $ meteor add newnectar:meteor-autoform-select-country-flags
 
 ```javascript
 {{> afQuickField name='country' type='countryFlags' multiple=false}}
+{{> afQuickField name='country' type='countryFlags' multiple=false firstOption='Select a country'}}
 ```
 
