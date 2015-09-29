@@ -6,14 +6,15 @@ AutoForm.addInputType("countryFlags", {
     }
   },
   contextAdjust: function (context) {    
+    context.atts.autocomplete = 'off';
     var itemAtts = _.clone(context.atts);
-
     context.items = [];
 
     // add default option
     context.items.push({
       name: context.name,
-      label: 'Select an option',
+      label: (!_.isUndefined(context.atts.firstOption) && typeof context.atts.firstOption === 'string' ? 
+                  context.atts.firstOption : 'Select an option'),
       value: '',
       _id: '',
       selected: false,
@@ -21,10 +22,22 @@ AutoForm.addInputType("countryFlags", {
     });
 
     return context;
+
   }
 });
 
 Template.countryFlags.helpers({
+  optionAtts: function () {
+    var item = this
+    var atts = {
+      value: item.value
+    };
+    if (item.selected) {
+      atts.selected = '';
+    }
+    console.log(atts);
+    return atts;
+  },  
   atts: function () {    
     var atts = _.clone(this.atts);
     atts = AutoForm.Utility.addClass(atts, 'form-control');
