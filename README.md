@@ -6,9 +6,6 @@ Simple select for countries using selectize
 
 ```
 $ meteor add aldeed:autoform
-$ meteor add jeremy:selectize
-$ meteor add chhib:selectize-bootstrap-3
-$ meteor add jss:flag-icon
 ```
 
 ## Installation
