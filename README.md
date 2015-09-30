@@ -1,13 +1,14 @@
-# Country flags select (Autoform meteor)
+# Country flags select
 
 Simple select for countries.
 
 ## Prerequisites
 
 ```
+$ meteor add aldeed:autoform
+$ meteor add jeremy:selectize
 $ meteor add chhib:selectize-bootstrap-3
 $ meteor add jss:flag-icon
-$ meteor add aldeed:autoform
 ```
 
 ## Installation
