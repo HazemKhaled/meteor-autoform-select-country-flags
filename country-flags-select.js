@@ -2,7 +2,7 @@ AutoForm.addInputType("countryFlags", {
   template: "countryFlags",
   valueOut: function () {
     if (this[0].selectize) {
-      return this[0].selectize.getValue()[0];
+      return this[0].selectize.getValue();
     }
   },
   contextAdjust: function (context) {    
@@ -35,7 +35,6 @@ Template.countryFlags.helpers({
     if (item.selected) {
       atts.selected = '';
     }
-    console.log(atts);
     return atts;
   },  
   atts: function () {    
@@ -53,12 +52,12 @@ Template.countryFlags.events({
 
 Template.countryFlags.rendered = function () {
   this.$('select').selectize({
-      maxItems: 1,
+      maxItems: !this.$('select').attr('multiple') ? 1 : this.$('select').attr('maxItems'),
       labelField: 'name',
       valueField: 'code',
       searchField: ['name', 'code'],
       options: COUNTRIES, 
-      items: [Template.currentData().value],
+      items: Template.currentData().value.constructor === Array ? Template.currentData().value : [Template.currentData().value],
       render: {
         item: function(item, escape) {
             return '<div><span class="flag-icon flag-icon-' + escape(item.code) + '"></span>&nbsp;' + escape(item.name) + '</div>';
