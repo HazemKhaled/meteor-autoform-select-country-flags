@@ -21,6 +21,11 @@ AutoForm.addInputType("countryFlags", {
       atts: itemAtts
     });
 
+    // make default value upperCase
+    context.value = context.value.constructor === Array ? 
+                          context.value.map(function(e) { return e.toUpperCase() }) : 
+                          context.value.toUpperCase();
+
     return context;
 
   }
@@ -60,10 +65,10 @@ Template.countryFlags.rendered = function () {
       items: Template.currentData().value.constructor === Array ? Template.currentData().value : [Template.currentData().value],
       render: {
         item: function(item, escape) {
-            return '<div><span class="flag-icon flag-icon-' + escape(item.code) + '"></span>&nbsp;' + escape(item.name) + '</div>';
+            return '<div><span class="flag-icon flag-icon-' + escape(item.code.toLowerCase()) + '"></span>&nbsp;' + escape(item.name) + '</div>';
         },
         option: function(item, escape) {
-            return '<div><span class="flag-icon flag-icon-' + escape(item.code) + '"></span>&nbsp;' + escape(item.name) + '</div>';
+            return '<div><span class="flag-icon flag-icon-' + escape(item.code.toLowerCase()) + '"></span>&nbsp;' + escape(item.name) + '</div>';
         }
     },           
     });

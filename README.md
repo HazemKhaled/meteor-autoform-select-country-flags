@@ -16,7 +16,7 @@ $ meteor add newnectar:meteor-autoform-select-country-flags
 
 ## Usage
 
-###Single selection
+### Single selection
 
 In collection schema make field type: String
 
@@ -25,7 +25,7 @@ In collection schema make field type: String
 {{> afQuickField name='country' type='countryFlags' firstOption='Select a country'}}
 ```
 
-###Multiple selection (maxItems - number of countries to select)
+### Multiple selection (maxItems - number of countries to select)
 
 In collection schema make field type: [String]
 
@@ -35,6 +35,9 @@ In collection schema make field type: [String]
 ```
 
 ## Changelog
+
+02/13/2016
+- country codes changed to upper case (https://en.wikipedia.org/wiki/ISO_3166-1)
 
 01/29/2016
 - multiple selection
