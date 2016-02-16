@@ -5,3 +5,11 @@
     {{/each}}
   </select>	
 </template>
+
+<template name="countryName">
+{{longCountryName this.country}}
+</template>
+
+<template name="countryFlag">
+<span class="flag-icon flag-icon-{{flagFor this.country}}"></span>
+</template>

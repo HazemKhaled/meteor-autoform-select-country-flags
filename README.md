@@ -34,7 +34,26 @@ In collection schema make field type: [String]
 {{> afQuickField name='country' type='countryFlags' multiple=true maxItems=5 firstOption='Select a country'}}
 ```
 
+### Helpers
+
+In templates get long name or flag
+
+```javascript
+Name: {{> countryName country='GB'}}
+Flag: {{> countryFlag country='GB'}}
+```
+
+In code return the long name
+
+```javascript
+CountryFlags.forName('gb');
+CountryFlags.forName('US');
+```
+
 ## Changelog
+
+02/16/2016
+- client helpers
 
 02/13/2016
 - country codes changed to upper case (https://en.wikipedia.org/wiki/ISO_3166-1)

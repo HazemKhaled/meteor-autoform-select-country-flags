@@ -77,3 +77,30 @@ Template.countryFlags.rendered = function () {
 Template.countryFlags.destroyed = function () {
   this.$('select')[0].selectize.destroy();
 };
+
+Template.countryName.helpers({
+  longCountryName(name) {
+    return CountryFlags.forName(name);
+  }
+});
+
+Template.countryFlag.helpers({
+  flagFor(name) {
+    return escape(name.toLowerCase());
+  }
+});
+
+CountryFlags = {
+  forName(name) {
+    var name = name ? name.toUpperCase() : '', 
+        country = null;
+    COUNTRIES.forEach(function (c) {
+      if (c.code === name) {
+        country = c;
+      }
+    });
+    return country ? country.name : undefined;
+  }
+}
+
+
