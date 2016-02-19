@@ -1,13 +1,13 @@
 AutoForm.addInputType("countryFlags", {
   template: "countryFlags",
-  valueOut: function () {
+  valueOut() {
     if (this[0].selectize) {
       return this[0].selectize.getValue();
     }
   },
-  contextAdjust: function (context) {    
+  contextAdjust(context) {    
     context.atts.autocomplete = 'off';
-    var itemAtts = _.clone(context.atts);
+    let itemAtts = _.clone(context.atts);
     context.items = [];
 
     // add default option
@@ -32,18 +32,16 @@ AutoForm.addInputType("countryFlags", {
 });
 
 Template.countryFlags.helpers({
-  optionAtts: function () {
-    var item = this
-    var atts = {
-      value: item.value
-    };
+  optionAtts() {
+    let item = this,
+        atts = { value: item.value };
     if (item.selected) {
       atts.selected = '';
     }
     return atts;
   },  
-  atts: function () {    
-    var atts = _.clone(this.atts);
+  atts() {    
+    let atts = _.clone(this.atts);
     atts = AutoForm.Utility.addClass(atts, 'form-control');
     return atts;
   },
@@ -55,7 +53,7 @@ Template.countryFlags.events({
   }
 });
 
-Template.countryFlags.rendered = function () {
+Template.countryFlags.onRendered(() => {
   this.$('select').selectize({
       maxItems: !this.$('select').attr('multiple') ? 1 : this.$('select').attr('maxItems'),
       labelField: 'name',
@@ -72,11 +70,11 @@ Template.countryFlags.rendered = function () {
         }
     },           
     });
-};
+});
 
-Template.countryFlags.destroyed = function () {
+Template.countryFlags.onDestroyed(() => {
   this.$('select')[0].selectize.destroy();
-};
+});
 
 Template.countryName.helpers({
   longCountryName(name) {
@@ -92,10 +90,10 @@ Template.countryFlag.helpers({
 
 CountryFlags = {
   forName(name) {
-    var name = name ? name.toUpperCase() : '', 
+    let _name = name ? name.toUpperCase() : '', 
         country = null;
     COUNTRIES.forEach(function (c) {
-      if (c.code === name) {
+      if (c.code === _name) {
         country = c;
       }
     });

@@ -52,6 +52,9 @@ CountryFlags.forName('US');
 
 ## Changelog
 
+02/19/2016
+- fixes
+
 02/16/2016
 - client helpers
 

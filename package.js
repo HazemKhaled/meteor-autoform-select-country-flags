@@ -1,6 +1,6 @@
 Package.describe({
   name: 'newnectar:meteor-autoform-select-country-flags',
-  version: '0.0.5',
+  version: '0.0.6',
   summary: 'Autoform country select flags',
   git: 'https://github.com/NewNectarMedia/meteor-autoform-select-country-flags',
   documentation: 'README.md'
@@ -15,6 +15,7 @@ Package.onUse(function(api) {
   api.use('jss:flag-icon@0.7.3');
   api.use('chhib:selectize-bootstrap-3@0.0.1');
   api.use('jeremy:selectize@0.12.1');
+  api.use('ecmascript');
 
   api.export("CountryFlags", ['client']);
 
