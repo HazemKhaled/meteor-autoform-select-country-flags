@@ -54,8 +54,12 @@ Template.countryFlags.events({
 });
 
 Template.countryFlags.onRendered(() => {
-  this.$('select').selectize({
-      maxItems: !this.$('select').attr('multiple') ? 1 : this.$('select').attr('maxItems'),
+  let name = Template.currentData().name,
+      select = `select[name=${name}]`,
+      element = this.$(select);
+
+  element.selectize({
+      maxItems: !element.attr('multiple') ? 1 : element.attr('maxItems'),
       labelField: 'name',
       valueField: 'code',
       searchField: ['name', 'code'],
@@ -73,7 +77,9 @@ Template.countryFlags.onRendered(() => {
 });
 
 Template.countryFlags.onDestroyed(() => {
-  this.$('select')[0].selectize.destroy();
+  let name = Template.currentData().name,
+      select = `select[name=${name}]`;
+  this.$(select)[0].selectize.destroy();
 });
 
 Template.countryName.helpers({
