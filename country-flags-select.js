@@ -79,7 +79,9 @@ Template.countryFlags.onRendered(() => {
 Template.countryFlags.onDestroyed(() => {
   let name = Template.currentData().name,
       select = `select[name=${name}]`;
-  this.$(select)[0].selectize.destroy();
+  if (this.$(select) && this.$(select)[0]) {
+    this.$(select)[0].selectize.destroy();
+  }
 });
 
 Template.countryName.helpers({
