@@ -1,6 +1,6 @@
 Package.describe({
   name: 'newnectar:meteor-autoform-select-country-flags',
-  version: '0.0.8_1',
+  version: '0.0.8_2',
   summary: 'Autoform country select flags',
   git: 'https://github.com/NewNectarMedia/meteor-autoform-select-country-flags',
   documentation: 'README.md'
