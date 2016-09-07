@@ -55,7 +55,7 @@ Template.countryFlags.events({
 
 Template.countryFlags.onRendered(() => {
   let name = Template.currentData().name,
-      select = `select[name=${name}]`,
+      select = `select[name="${name}"]`,
       element = this.$(select);
 
   element.selectize({
@@ -78,7 +78,7 @@ Template.countryFlags.onRendered(() => {
 
 Template.countryFlags.onDestroyed(() => {
   let name = Template.currentData().name,
-      select = `select[name=${name}]`;
+      select = `select[name="${name}"]`;
   if (this.$(select) && this.$(select)[0] && this.$(select)[0].selectize) {
     this.$(select)[0].selectize.destroy();
   }
@@ -108,5 +108,4 @@ CountryFlags = {
     return country ? country.name : undefined;
   }
 }
-
 

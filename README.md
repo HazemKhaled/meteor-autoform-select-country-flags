@@ -23,6 +23,7 @@ In collection schema make field type: String
 ```javascript
 {{> afQuickField name='country' type='countryFlags'}}
 {{> afQuickField name='country' type='countryFlags' firstOption='Select a country'}}
+{{> afQuickField name='profile.country' type='countryFlags' firstOption='Select a country'}}
 ```
 
 ### Multiple selection (maxItems - number of countries to select)
@@ -52,14 +53,17 @@ CountryFlags.forName('US');
 
 ## Changelog
 
+09/08/2016
+- bug fix ('.' in select name was crashing the selectize)
+
 07/30/2016
-- bug fix (thanks @szimmers)
+- bug fix (thanks [@szimmers](https://github.com/szimmers)) 
 
 06/30/2016
-- bug fix (thanks @szimmers)
+- bug fix (thanks [@szimmers](https://github.com/szimmers))
 
 03/05/2016
-- bug fix (thanks @ritchieng)
+- bug fix (thanks [@ritchieng](https://github.com/ritchieng))
 
 02/19/2016
 - fixes
@@ -75,4 +79,3 @@ CountryFlags.forName('US');
 
 ### todo
 - tests
-
